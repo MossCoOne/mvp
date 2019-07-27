@@ -33,6 +33,8 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
     implementation "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
     implementation "com.android.support:recyclerview-v7:$rootProject.ext.supportLibraryVersion"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
     implementation "com.github.bumptech.glide:glide:$rootProject.ext.glydeVersion"
     annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.ext.glydeVersion"

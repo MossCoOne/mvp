@@ -1,4 +1,4 @@
-package com.mossco.za.mvpapp;
+package com.mossco.za.mvpapp.news;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.mossco.za.mvpapp.R;
+import com.mossco.za.mvpapp.article.ArticleDetailsActivity;
 import com.mossco.za.mvpapp.databinding.ActivityMainBinding;
 import com.mossco.za.mvpapp.utilities.StringsUtils;
 
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
         binding.newsArticleRecyclerView.setAdapter(new NewsArticleAdapter(newsArticleList));
         binding.newsArticleRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        binding.mainStoryContainer.setOnClickListener(
+                view -> startActivity(ArticleDetailsActivity.getStartIntent(view.getContext(),mainStory)));
     }
 
     private void ratherDontShowMainStoryView() {
@@ -86,9 +90,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return null;
-    }
-
-    private void removeMainStoryFromList() {
-
     }
 }

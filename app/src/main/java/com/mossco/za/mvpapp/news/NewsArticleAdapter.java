@@ -1,4 +1,4 @@
-package com.mossco.za.mvpapp;
+package com.mossco.za.mvpapp.news;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.google.android.material.chip.Chip;
+import com.mossco.za.mvpapp.R;
 import com.mossco.za.mvpapp.databinding.NewsArticleLayoutBinding;
 
 import java.util.List;
