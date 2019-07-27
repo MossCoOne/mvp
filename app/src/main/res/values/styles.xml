@@ -8,8 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="HeadLineTextStyle">
+    <style name="HeadLineTextStyle" parent="AppTheme">
         <item name="android:textSize">20sp</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="SmallTextStyle" parent="AppTheme">
+        <item name="android:textSize">12sp</item>
+        <item name="android:padding">2dp</item>
         <item name="android:textColor">@color/colorBlack</item>
     </style>
 
