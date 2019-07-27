@@ -7,4 +7,5 @@
     <dimen name="image_thumb_nail_size">100dp</dimen>
     <dimen name="zero_dp">0dp</dimen>
     <dimen name="headline_height_size">300dp</dimen>
+    <dimen name="extra_small_text_size">8sp</dimen>
 </resources>

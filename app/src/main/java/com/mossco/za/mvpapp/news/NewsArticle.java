@@ -14,10 +14,12 @@ public class NewsArticle implements Serializable {
     @SerializedName("IsMainStory") private boolean isMainStory;
     @SerializedName("UrlFriendlyDate") private String urlFriendlyDate;
     @SerializedName("UrlFriendlyHeadline") private String urlFriendlyHeadline;
-    @SerializedName("ImageUrlRemote" )private String imageUrlRemote;
+    @SerializedName("ImageUrlRemote") private String imageUrlRemote;
     @SerializedName("Category") private String category;
     @SerializedName("SmallImageName") private String smallImageName;
     @SerializedName("DateCreated") private String dateCreated;
+    @SerializedName("LargeImageAlt") private String largeImageAlt;
+    @SerializedName("Body") private String storyBody;
 
     public String getHeadline() {
         return headline;
@@ -113,5 +115,21 @@ public class NewsArticle implements Serializable {
 
     public void setDateCreated(String dateCreated) {
         this.dateCreated = dateCreated;
+    }
+
+    public String getLargeImageAlt() {
+        return largeImageAlt;
+    }
+
+    public void setLargeImageAlt(String largeImageAlt) {
+        this.largeImageAlt = largeImageAlt;
+    }
+
+    public String getStoryBody() {
+        return storyBody;
+    }
+
+    public void setStoryBody(String storyBody) {
+        this.storyBody = storyBody;
     }
 }

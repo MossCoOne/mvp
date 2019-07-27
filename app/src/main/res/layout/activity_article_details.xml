@@ -1,10 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".article.ArticleDetailsActivity">
+    xmlns:tools="http://schemas.android.com/tools">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorKhakhiLight"
+        android:orientation="vertical"
+        tools:context=".article.ArticleDetailsActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/articleTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/extra_small_space"
+            android:layout_marginEnd="@dimen/medium_space"
+            android:layout_marginStart="@dimen/medium_space"
+            android:layout_marginTop="@dimen/medium_space"
+            tools:text="Tough love from early coaches made beast"
+            style="@style/HeadLineTextStyle"/>
+
+        <TextView
+            android:id="@+id/articleDateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/zero_dp"
+            android:layout_marginEnd="@dimen/medium_space"
+            android:layout_marginStart="@dimen/medium_space"
+            android:layout_marginTop="@dimen/extra_small_space"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/articleImageView"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@drawable/beast"/>
+        <TextView
+            android:id="@+id/largeImageAltTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/medium_space"
+            android:textSize="@dimen/extra_small_text_size"
+            tools:text="alt description"/>
+        <TextView
+            android:id="@+id/articleDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_space"
+            tools:text="
+
+Tendai Mtawarira wouldn’t be the record breaker he will become on Friday and he wouldn’t have become the household name he is in the rugby-playing world, were it not for the tough love shown towards him by some of his early coaches.
+
+Making the swop from loose-forward and lock to playing in the front row is not an easy thing to do. Neither is it for the faint-hearted. The good props have played the position for years, and there’s a reason why generally it is accepted that players in that position mature later than others. As the ones who survive to become really good will tell you, being  - actually they usually use a much stronger word - in the scrums at some point is how you learn.
+"
+            style="@style/SmallTextStyle"/>
+    </LinearLayout>
+
+    </ScrollView>
+</layout>

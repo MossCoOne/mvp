@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     public String loadJSONFromAsset() {
         String json;
         try {
-            InputStream is = getAssets().open("article_response_mock.json");
+            InputStream is = getAssets().open("news_response_mock.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
