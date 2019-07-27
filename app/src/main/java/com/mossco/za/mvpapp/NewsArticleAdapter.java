@@ -24,11 +24,6 @@ public class NewsArticleAdapter extends RecyclerView.Adapter<NewsArticleAdapter.
         this.newsArticleList = newsArticleList;
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        return super.getItemViewType(position);
-    }
-
     @NonNull
     @Override
     public NewsArticleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

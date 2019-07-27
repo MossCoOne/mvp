@@ -3,6 +3,7 @@ package com.mossco.za.mvpapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,12 +31,18 @@ public class MainActivity extends AppCompatActivity {
         NewsArticle mainStory = getMainStory(newsArticleList);
         if (mainStory != null) {
             populateMainStory(mainStory);
+        } else {
+            ratherDontShowMainStoryView();
         }
 
         newsArticleList.remove(mainStory);
 
         binding.newsArticleRecyclerView.setAdapter(new NewsArticleAdapter(newsArticleList));
         binding.newsArticleRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    private void ratherDontShowMainStoryView() {
+        binding.mainStoryContainer.setVisibility(View.GONE);
     }
 
     private void populateMainStory(NewsArticle mainStory) {
@@ -81,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         return null;
     }
 
-    private void removeMainStoryFromList(){
+    private void removeMainStoryFromList() {
 
     }
 }
