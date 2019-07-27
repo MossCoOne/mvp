@@ -2,10 +2,10 @@ package com.mossco.za.mvpapp;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
@@ -47,7 +47,7 @@ public class NewsArticleAdapter extends RecyclerView.Adapter<NewsArticleAdapter.
 
         Chip categoryChip;
         TextView headlineTextView;
-        ImageView thumbNailImageView;
+        AppCompatImageView thumbNailImageView;
         TextView dateTextView;
         TextView blurbTextView;
 

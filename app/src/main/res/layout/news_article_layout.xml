@@ -39,7 +39,7 @@
             app:layout_constraintTop_toBottomOf="@+id/categoryChip"
             tools:text="Juve's Bonucci says Kean abuse comments were misunderstood"
             style="@style/HeadLineTextStyle"/>
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/thumbNailImageView"
             android:layout_width="@dimen/image_thumb_nail_size"
             android:layout_height="@dimen/image_thumb_nail_size"
