@@ -6,4 +6,5 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorKhakhiLight">#eeeeee</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorBlurry">#990A0000</color>
 </resources>
