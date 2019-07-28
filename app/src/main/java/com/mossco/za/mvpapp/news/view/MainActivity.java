@@ -10,6 +10,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import com.bumptech.glide.Glide;
 import com.google.android.material.snackbar.Snackbar;
 import com.mossco.za.mvpapp.R;
 import com.mossco.za.mvpapp.article.view.ArticleDetailsActivity;
@@ -17,6 +18,7 @@ import com.mossco.za.mvpapp.databinding.ActivityMainBinding;
 import com.mossco.za.mvpapp.news.model.NewsArticle;
 import com.mossco.za.mvpapp.news.presenter.NewsContract;
 import com.mossco.za.mvpapp.news.presenter.NewsPresenter;
+import com.mossco.za.mvpapp.utilities.DrawableUtils;
 import com.mossco.za.mvpapp.utilities.StringsUtils;
 
 import java.util.List;
@@ -110,7 +112,10 @@ public class MainActivity extends AppCompatActivity implements NewsContract.News
         binding.categoryChip.setText(mainStory.getCategory());
         binding.headlineStoryTitle.setText(mainStory.getHeadline());
         binding.headlineStoryDateTextView.setText(StringsUtils.getFormattedDate(mainStory.getDateCreated()));
-        binding.headlineStoryImageView.setImageResource(R.drawable.beast);
+
+        Glide.with(getApplicationContext()).load(StringsUtils.REMOTE_IMAGE_URL.concat(mainStory.getLargeImageName()))
+                .dontAnimate().fitCenter().placeholder(DrawableUtils.getCircularProgressDrawable(this))
+                .error(R.drawable.ic_image_not_availabe).into(binding.headlineStoryImageView);
     }
 
     private NewsArticle getMainStory(List<NewsArticle> newsArticleList) {

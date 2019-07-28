@@ -51,7 +51,6 @@ public class ArticleDetailsActivity extends AppCompatActivity implements Article
         binding.articleTitleTextView.setText(newsArticle.getHeadline());
         binding.largeImageAltTextView.setText(newsArticle.getLargeImageAlt());
         binding.articleDescription.setText(newsArticle.getStoryBody());
-        binding.articleImageView.setImageResource(R.drawable.beast);
 
         Glide.with(getApplicationContext()).load(StringsUtils.REMOTE_IMAGE_URL.concat(newsArticle.getLargeImageName()))
                 .dontAnimate().fitCenter().placeholder(DrawableUtils.getCircularProgressDrawable(this))
