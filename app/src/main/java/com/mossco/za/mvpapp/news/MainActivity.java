@@ -1,8 +1,12 @@
 package com.mossco.za.mvpapp.news;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -31,7 +35,12 @@ public class MainActivity extends AppCompatActivity implements NewsContract.View
         getSupportActionBar().setTitle(getString(R.string.news_title));
         newsPresenter = new NewsPresenter(this);
 
-        newsPresenter.loadLatestNews();
+        if (isNetworkConnectionAvailable()) {
+
+            newsPresenter.loadLatestNews();
+        } else {
+            Toast.makeText(this, "Network Not available", Toast.LENGTH_LONG).show();
+        }
 
         binding.mainStoryContainer
                 .setOnClickListener(view -> startActivity(ArticleDetailsActivity.getStartIntent(view.getContext(), mainStory)));
@@ -59,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements NewsContract.View
         newsProgressDialog.setTitle(getString(R.string.places_loading));
         newsProgressDialog.setMessage(getString(R.string.please_wait_message));
         newsProgressDialog.setIndeterminate(true);
-        newsProgressDialog.setCancelable(false);
         newsProgressDialog.show();
     }
 
@@ -92,5 +100,15 @@ public class MainActivity extends AppCompatActivity implements NewsContract.View
             }
         }
         return null;
+    }
+
+    boolean isNetworkConnectionAvailable() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info = cm.getActiveNetworkInfo();
+        if (info == null) {
+            return false;
+        }
+        NetworkInfo.State network = info.getState();
+        return (network == NetworkInfo.State.CONNECTED || network == NetworkInfo.State.CONNECTING);
     }
 }
