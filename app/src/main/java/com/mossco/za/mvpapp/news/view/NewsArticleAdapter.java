@@ -14,6 +14,7 @@ import com.google.android.material.chip.Chip;
 import com.mossco.za.mvpapp.R;
 import com.mossco.za.mvpapp.databinding.NewsArticleLayoutBinding;
 import com.mossco.za.mvpapp.news.model.NewsArticle;
+import com.mossco.za.mvpapp.utilities.DrawableUtils;
 
 import java.util.List;
 
@@ -83,6 +84,7 @@ public class NewsArticleAdapter extends RecyclerView.Adapter<NewsArticleAdapter.
             blurbTextView.setText(newsArticle.getBlurb());
             Glide.with(thumbNailImageView.getContext())
                     .load(newsArticle.getImageUrlRemote().concat(newsArticle.getSmallImageName())).dontAnimate().fitCenter()
+                    .placeholder(DrawableUtils.getCircularProgressDrawable(thumbNailImageView.getContext()))
                     .error(R.drawable.ic_image_not_availabe).into(thumbNailImageView);
         }
 

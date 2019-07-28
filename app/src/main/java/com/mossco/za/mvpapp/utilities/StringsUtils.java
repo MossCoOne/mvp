@@ -7,6 +7,7 @@ import java.util.Locale;
 public class StringsUtils {
 
     public static final String NEWS_BASE_URL = "http://ipadfeed.supersport.com/";
+    public static final String REMOTE_IMAGE_URL ="http://images.supersport.com/";
 
     public static String getFormattedDate(String inputDate)  {
         long unixDate = Long.parseLong(inputDate.substring(inputDate.indexOf('(')+1,inputDate.indexOf('+')));

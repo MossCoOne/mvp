@@ -20,6 +20,7 @@ public class NewsArticle implements Serializable {
     @SerializedName("DateCreated") private String dateCreated;
     @SerializedName("LargeImageAlt") private String largeImageAlt;
     @SerializedName("Body") private String storyBody;
+    @SerializedName("LargeImageName") private String largeImageName;
 
     public String getHeadline() {
         return headline;
@@ -131,5 +132,13 @@ public class NewsArticle implements Serializable {
 
     public void setStoryBody(String storyBody) {
         this.storyBody = storyBody;
+    }
+
+    public String getLargeImageName() {
+        return largeImageName;
+    }
+
+    public void setLargeImageName(String largeImageName) {
+        this.largeImageName = largeImageName;
     }
 }
