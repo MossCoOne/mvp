@@ -34,7 +34,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/headlineStoryImageView"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_margin="@dimen/zero_dp"
                         android:scaleType="centerCrop"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -69,7 +69,10 @@
                             android:id="@+id/headlineStoryTitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/medium_space"
+                            android:layout_marginStart="@dimen/medium_space"
+                            android:layout_marginEnd="@dimen/medium_space"
+                            android:layout_marginTop="@dimen/small_space"
+                            android:layout_marginBottom="@dimen/small_space"
                             android:textColor="@color/colorWhite"
                             tools:text="Tough from early coaches made beast"
                             style="@style/HeadLineTextStyle"/>

@@ -6,11 +6,12 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.view.View;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import com.bumptech.glide.Glide;
-import com.google.android.material.snackbar.Snackbar;
 import com.mossco.za.mvpapp.R;
 import com.mossco.za.mvpapp.article.presenter.ArticlePresenter;
 import com.mossco.za.mvpapp.article.presenter.ArticlesContract;
@@ -55,6 +56,7 @@ public class ArticleDetailsActivity extends AppCompatActivity implements Article
         Glide.with(getApplicationContext()).load(StringsUtils.REMOTE_IMAGE_URL.concat(newsArticle.getLargeImageName()))
                 .dontAnimate().fitCenter().placeholder(DrawableUtils.getCircularProgressDrawable(this))
                 .error(R.drawable.ic_image_not_availabe).into(binding.articleImageView);
+        binding.articleScrollView.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -73,16 +75,17 @@ public class ArticleDetailsActivity extends AppCompatActivity implements Article
 
     @Override
     public void showFailedToLoadLatestNewsErrorMessage() {
-        showSnackBar(getString(R.string.failed_to_load_error));
+        showCustomDialog(getString(R.string.failed_to_load_error));
     }
 
-    private void showSnackBar(String message) {
-        newsProgressDialog.dismiss();
-        Snackbar snackbar =
-                Snackbar.make(binding.articleImageView, message, Snackbar.LENGTH_LONG).setAction(getString(R.string.retry), v -> {
-                    onArticleScreenCreated();
-                });
-        snackbar.show();
+    public void showCustomDialog(String titleText) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(titleText);
+        builder.setIcon(R.drawable.ic_error_black_24dp);
+        builder.setNegativeButton(R.string.cancel_text, (dialog, which) -> finish())
+                .setPositiveButton(R.string.retry, (dialog, which) -> onArticleScreenCreated());
+        builder.show().setCancelable(false);
     }
 
     private void onArticleScreenCreated() {
@@ -91,8 +94,8 @@ public class ArticleDetailsActivity extends AppCompatActivity implements Article
             NewsArticle newsArticle = (NewsArticle) getIntent().getSerializableExtra(NEWS_ARTICLE_KEY);
             if (isNetworkConnectionAvailable()) {
                 articlePresenter.loadArticle(newsArticle);
-            }else {
-                showSnackBar(getString(R.string.network_error));
+            } else {
+                showCustomDialog(getString(R.string.network_error));
             }
         }
     }

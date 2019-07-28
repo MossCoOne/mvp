@@ -8,4 +8,6 @@
     <string name="failed_to_load_error">Failed to load data</string>
     <string name="network_error">You are not connected to the network</string>
     <string name="retry">Retry</string>
+    <string name="cancel_text">Cancel</string>
+    <string name="error_occurred">Error Occured</string>
 </resources>

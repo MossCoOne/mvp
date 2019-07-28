@@ -7,11 +7,11 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.bumptech.glide.Glide;
-import com.google.android.material.snackbar.Snackbar;
 import com.mossco.za.mvpapp.R;
 import com.mossco.za.mvpapp.article.view.ArticleDetailsActivity;
 import com.mossco.za.mvpapp.databinding.ActivityMainBinding;
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements NewsContract.News
         if (isNetworkConnectionAvailable()) {
             newsPresenter.loadLatestNews();
         } else {
-            showSnackBar(getString(R.string.network_error));
+            showCustomDialog(getString(R.string.network_error));
         }
     }
 
@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity implements NewsContract.News
     @Override
     public void showProgressDialog() {
         if (newsProgressDialog != null) {
-
             newsProgressDialog.setTitle(getString(R.string.places_loading));
             newsProgressDialog.show();
             newsProgressDialog.setMessage(getString(R.string.please_wait_message));
@@ -86,17 +85,18 @@ public class MainActivity extends AppCompatActivity implements NewsContract.News
 
     @Override
     public void showFailedToLoadLatestNewsErrorMessage() {
-        showSnackBar(getString(R.string.failed_to_load_error));
+        newsProgressDialog.dismiss();
+        showCustomDialog(getString(R.string.failed_to_load_error));
     }
 
-    private void showSnackBar(String message) {
-        newsProgressDialog.dismiss();
-        Snackbar snackbar = Snackbar.make(binding.contentScrollView, message, Snackbar.LENGTH_LONG)
-                .setAction(getString(R.string.retry), v -> {
-                    //reload
-                    onNewsScreenCreated();
-                });
-        snackbar.show();
+    public void showCustomDialog(String titleText) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(titleText);
+        builder.setIcon(R.drawable.ic_error_black_24dp);
+        builder.setNegativeButton(R.string.cancel_text, (dialog, which) -> finish())
+                .setPositiveButton(R.string.retry, (dialog, which) -> onNewsScreenCreated());
+        builder.show().setCancelable(false);
     }
 
     @Override

@@ -18,9 +18,11 @@
 
 
         <ScrollView
+            android:id="@+id/articleScrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fillViewport="true"
+            android:visibility="invisible"
             android:scrollbars="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
