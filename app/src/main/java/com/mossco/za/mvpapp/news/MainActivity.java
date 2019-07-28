@@ -2,8 +2,10 @@ package com.mossco.za.mvpapp.news;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,29 +22,60 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NewsContract.View {
 
     ActivityMainBinding binding;
     private List<NewsArticle> newsArticleList;
+    private NewsPresenter newsPresenter;
+    private NewsArticle mainStory;
+    private ProgressDialog newsProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        newsArticleList = getNewsArcticleResponse();
-        NewsArticle mainStory = getMainStory(newsArticleList);
+
+        newsPresenter = new NewsPresenter(this);
+
+        newsPresenter.loadLatestNews();
+
+        binding.mainStoryContainer
+                .setOnClickListener(view -> startActivity(ArticleDetailsActivity.getStartIntent(view.getContext(), mainStory)));
+    }
+
+    @Override
+    public void displayLatestNews(List<NewsArticle> newsArticles) {
+
+        mainStory = getMainStory(newsArticles);
+
         if (mainStory != null) {
             populateMainStory(mainStory);
         } else {
             ratherDontShowMainStoryView();
         }
 
-        newsArticleList.remove(mainStory);
-
-        binding.newsArticleRecyclerView.setAdapter(new NewsArticleAdapter(newsArticleList));
+        binding.newsArticleRecyclerView.setAdapter(new NewsArticleAdapter(newsArticles));
         binding.newsArticleRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        binding.mainStoryContainer.setOnClickListener(
-                view -> startActivity(ArticleDetailsActivity.getStartIntent(view.getContext(),mainStory)));
+    }
+
+    @Override
+    public void showProgressDialog() {
+        newsProgressDialog = new ProgressDialog(this);
+        newsProgressDialog.setTitle(getString(R.string.places_loading));
+        newsProgressDialog.setMessage(getString(R.string.please_wait_message));
+        newsProgressDialog.setIndeterminate(true);
+        newsProgressDialog.setCancelable(false);
+        newsProgressDialog.show();
+    }
+
+    @Override
+    public void dismissProgressDialog() {
+        newsProgressDialog.dismiss();
+    }
+
+    @Override
+    public void showFailedToLoadLatestNewsErrorMessage() {
+
     }
 
     private void ratherDontShowMainStoryView() {
@@ -54,32 +87,6 @@ public class MainActivity extends AppCompatActivity {
         binding.headlineStoryTitle.setText(mainStory.getHeadline());
         binding.headlineStoryDateTextView.setText(StringsUtils.getFormattedDate(mainStory.getDateCreated()));
         binding.headlineStoryImageView.setImageResource(R.drawable.beast);
-    }
-
-    public String loadJSONFromAsset() {
-        String json;
-        try {
-            InputStream is = getAssets().open("news_response_mock.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-    }
-
-    public List<NewsArticle> getNewsArcticleResponse() {
-        Gson gson = new Gson();
-
-        Type collectionType = new TypeToken<Collection<NewsArticle>>() {
-        }.getType();
-        Collection<NewsArticle> newsArticles = gson.fromJson(loadJSONFromAsset(), collectionType);
-
-        return (List<NewsArticle>) newsArticles;
     }
 
     private NewsArticle getMainStory(List<NewsArticle> newsArticleList) {
