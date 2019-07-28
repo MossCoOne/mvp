@@ -1,23 +1,19 @@
 package com.mossco.za.mvpapp.article;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.mossco.za.mvpapp.databinding.ActivityArticleDetailsBinding;
-import com.mossco.za.mvpapp.news.NewsArticle;
-import com.mossco.za.mvpapp.R;
-import com.mossco.za.mvpapp.utilities.StringsUtils;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import com.google.gson.Gson;
+import com.mossco.za.mvpapp.R;
+import com.mossco.za.mvpapp.databinding.ActivityArticleDetailsBinding;
+import com.mossco.za.mvpapp.news.model.NewsArticle;
+import com.mossco.za.mvpapp.utilities.StringsUtils;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Type;
-import java.util.Collection;
-import java.util.List;
 
 public class ArticleDetailsActivity extends AppCompatActivity {
 

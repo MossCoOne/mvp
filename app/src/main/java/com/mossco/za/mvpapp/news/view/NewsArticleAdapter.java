@@ -1,4 +1,4 @@
-package com.mossco.za.mvpapp.news;
+package com.mossco.za.mvpapp.news.view;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.chip.Chip;
 import com.mossco.za.mvpapp.R;
 import com.mossco.za.mvpapp.databinding.NewsArticleLayoutBinding;
+import com.mossco.za.mvpapp.news.model.NewsArticle;
 
 import java.util.List;
 

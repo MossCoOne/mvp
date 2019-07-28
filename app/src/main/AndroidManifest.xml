@@ -14,9 +14,9 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
         <activity
-            android:parentActivityName=".news.MainActivity"
+            android:parentActivityName=".news.view.MainActivity"
             android:name=".article.ArticleDetailsActivity"/>
-        <activity android:name=".news.MainActivity">
+        <activity android:name=".news.view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

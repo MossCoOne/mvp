@@ -1,4 +1,4 @@
-package com.mossco.za.mvpapp.model;
+package com.mossco.za.mvpapp.article.model;
 
 import com.mossco.za.mvpapp.network.NewsServiceApi;
 import com.mossco.za.mvpapp.network.NewsServiceApiClient;

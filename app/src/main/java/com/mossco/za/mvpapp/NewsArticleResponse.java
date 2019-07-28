@@ -1,6 +1,6 @@
 package com.mossco.za.mvpapp;
 
-import com.mossco.za.mvpapp.news.NewsArticle;
+import com.mossco.za.mvpapp.news.model.NewsArticle;
 
 import java.io.Serializable;
 import java.util.List;

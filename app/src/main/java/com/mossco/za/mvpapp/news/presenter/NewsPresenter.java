@@ -1,7 +1,8 @@
-package com.mossco.za.mvpapp.news;
+package com.mossco.za.mvpapp.news.presenter;
 
-import com.mossco.za.mvpapp.model.NewsRepository;
-import com.mossco.za.mvpapp.model.NewsRepositoryImplementation;
+import com.mossco.za.mvpapp.news.model.NewsArticle;
+import com.mossco.za.mvpapp.news.model.NewsRepository;
+import com.mossco.za.mvpapp.news.model.NewsRepositoryImplementation;
 
 import java.util.List;
 

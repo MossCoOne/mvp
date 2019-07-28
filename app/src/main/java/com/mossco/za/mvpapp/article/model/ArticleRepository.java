@@ -1,5 +1,4 @@
-package com.mossco.za.mvpapp.model;
-
+package com.mossco.za.mvpapp.article.model;
 import com.mossco.za.mvpapp.news.model.NewsArticle;
 
 public interface ArticleRepository {

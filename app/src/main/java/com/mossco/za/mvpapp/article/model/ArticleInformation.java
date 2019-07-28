@@ -1,4 +1,4 @@
-package com.mossco.za.mvpapp.model;
+package com.mossco.za.mvpapp.article.model;
 
 class ArticleInformation {
     private String siteName;

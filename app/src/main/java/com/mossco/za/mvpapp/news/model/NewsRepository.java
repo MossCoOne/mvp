@@ -1,6 +1,4 @@
-package com.mossco.za.mvpapp.model;
-
-import com.mossco.za.mvpapp.news.NewsArticle;
+package com.mossco.za.mvpapp.news.model;
 
 import java.util.List;
 

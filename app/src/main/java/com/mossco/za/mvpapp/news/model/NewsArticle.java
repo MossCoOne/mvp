@@ -1,4 +1,4 @@
-package com.mossco.za.mvpapp.news;
+package com.mossco.za.mvpapp.news.model;
 
 import com.google.gson.annotations.SerializedName;
 
