@@ -10,6 +10,8 @@
         android:layout_marginEnd="@dimen/medium_space"
         android:layout_marginStart="@dimen/medium_space"
         android:layout_marginTop="@dimen/small_space"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
         android:background="@drawable/card_background">
 
         <com.google.android.material.chip.Chip
