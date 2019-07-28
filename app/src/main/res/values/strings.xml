@@ -4,4 +4,8 @@
     <string name="please_wait_message">Please wait..</string>
     <string name="news_title">News</string>
     <string name="news_article">Article</string>
+    <string name="ok">dialog_ok</string>
+    <string name="failed_to_load_error">Failed to load data</string>
+    <string name="network_error">You are not connected to the network</string>
+    <string name="retry">Retry</string>
 </resources>

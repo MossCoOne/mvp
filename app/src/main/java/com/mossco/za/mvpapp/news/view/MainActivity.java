@@ -6,11 +6,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import com.google.android.material.snackbar.Snackbar;
 import com.mossco.za.mvpapp.R;
 import com.mossco.za.mvpapp.article.view.ArticleDetailsActivity;
 import com.mossco.za.mvpapp.databinding.ActivityMainBinding;
@@ -24,7 +24,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements NewsContract.NewsView, NewsArticleAdapter.OnItemClickListener {
 
     ActivityMainBinding binding;
-    private List<NewsArticle> newsArticleList;
     private NewsPresenter newsPresenter;
     private NewsArticle mainStory;
     private ProgressDialog newsProgressDialog;
@@ -33,20 +32,22 @@ public class MainActivity extends AppCompatActivity implements NewsContract.News
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-
+        newsProgressDialog = new ProgressDialog(this);
         setSupportActionBar(binding.mainToolbar);
         getSupportActionBar().setTitle(getString(R.string.news_title));
-        newsPresenter = new NewsPresenter(this);
 
-        if (isNetworkConnectionAvailable()) {
-
-            newsPresenter.loadLatestNews();
-        } else {
-            Toast.makeText(this, "Network Not available", Toast.LENGTH_LONG).show();
-        }
-
+        onNewsScreenCreated();
         binding.mainStoryContainer
                 .setOnClickListener(view -> startActivity(ArticleDetailsActivity.getStartIntent(view.getContext(), mainStory)));
+    }
+
+    private void onNewsScreenCreated() {
+        newsPresenter = new NewsPresenter(this);
+        if (isNetworkConnectionAvailable()) {
+            newsPresenter.loadLatestNews();
+        } else {
+            showSnackBar(getString(R.string.network_error));
+        }
     }
 
     @Override
@@ -59,20 +60,21 @@ public class MainActivity extends AppCompatActivity implements NewsContract.News
         } else {
             ratherDontShowMainStoryView();
         }
-        newsArticles.remove(mainStory);
 
-        binding.newsArticleRecyclerView.setAdapter(new NewsArticleAdapter(newsArticles,this::onItemClicked));
+        binding.newsArticleRecyclerView.setAdapter(new NewsArticleAdapter(newsArticles, this::onItemClicked));
         binding.newsArticleRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.contentScrollView.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void showProgressDialog() {
-        newsProgressDialog = new ProgressDialog(this);
-        newsProgressDialog.setTitle(getString(R.string.places_loading));
-        newsProgressDialog.setMessage(getString(R.string.please_wait_message));
-        newsProgressDialog.setIndeterminate(true);
-        newsProgressDialog.show();
+        if (newsProgressDialog != null) {
+
+            newsProgressDialog.setTitle(getString(R.string.places_loading));
+            newsProgressDialog.show();
+            newsProgressDialog.setMessage(getString(R.string.please_wait_message));
+            newsProgressDialog.setIndeterminate(true);
+        }
     }
 
     @Override
@@ -82,12 +84,22 @@ public class MainActivity extends AppCompatActivity implements NewsContract.News
 
     @Override
     public void showFailedToLoadLatestNewsErrorMessage() {
+        showSnackBar(getString(R.string.failed_to_load_error));
+    }
 
+    private void showSnackBar(String message) {
+        newsProgressDialog.dismiss();
+        Snackbar snackbar = Snackbar.make(binding.contentScrollView, message, Snackbar.LENGTH_LONG)
+                .setAction(getString(R.string.retry), v -> {
+                    //reload
+                    onNewsScreenCreated();
+                });
+        snackbar.show();
     }
 
     @Override
     public void onItemClicked(NewsArticle extraItem) {
-        startActivity(ArticleDetailsActivity.getStartIntent(this,extraItem));
+        startActivity(ArticleDetailsActivity.getStartIntent(this, extraItem));
     }
 
     private void ratherDontShowMainStoryView() {
