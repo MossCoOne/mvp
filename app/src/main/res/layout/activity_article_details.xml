@@ -6,8 +6,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/mainToolbar"
             android:layout_width="match_parent"
@@ -33,10 +33,9 @@
                     android:id="@+id/articleTitleTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/extra_small_space"
                     android:layout_marginEnd="@dimen/medium_space"
                     android:layout_marginStart="@dimen/medium_space"
-                    android:layout_marginTop="@dimen/medium_space"
+                    android:layout_marginTop="@dimen/small_space"
                     tools:text="Tough love from early coaches made beast"
                     style="@style/HeadLineTextStyle"/>
 
@@ -44,10 +43,10 @@
                     android:id="@+id/articleDateTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/zero_dp"
+                    android:layout_marginBottom="@dimen/extra_small_space"
                     android:layout_marginEnd="@dimen/medium_space"
                     android:layout_marginStart="@dimen/medium_space"
-                    android:layout_marginTop="@dimen/extra_small_space"/>
+                    style="@style/SmallTextStyle"/>
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/articleImageView"
@@ -61,8 +60,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_marginEnd="@dimen/medium_space"
-                    android:textSize="@dimen/extra_small_text_size"
-                    tools:text="alt description"/>
+                    tools:text="alt description"
+                    style="@style/SmallTextStyle"/>
                 <TextView
                     android:id="@+id/articleDescription"
                     android:layout_width="match_parent"
@@ -74,7 +73,7 @@ Tendai Mtawarira wouldn’t be the record breaker he will become on Friday and h
 
 Making the swop from loose-forward and lock to playing in the front row is not an easy thing to do. Neither is it for the faint-hearted. The good props have played the position for years, and there’s a reason why generally it is accepted that players in that position mature later than others. As the ones who survive to become really good will tell you, being  - actually they usually use a much stronger word - in the scrums at some point is how you learn.
 "
-                    style="@style/SmallTextStyle"/>
+                    style="@style/MediumTextStyle"/>
             </LinearLayout>
 
         </ScrollView>

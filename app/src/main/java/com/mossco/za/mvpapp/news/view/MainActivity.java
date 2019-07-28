@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements NewsContract.News
 
         binding.newsArticleRecyclerView.setAdapter(new NewsArticleAdapter(newsArticles,this::onItemClicked));
         binding.newsArticleRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        binding.contentScrollView.setVisibility(View.VISIBLE);
     }
 
     @Override

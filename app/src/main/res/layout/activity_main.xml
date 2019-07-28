@@ -16,6 +16,8 @@
             android:minHeight="?attr/actionBarSize"
             app:titleTextColor="@color/colorWhite"/>
         <androidx.core.widget.NestedScrollView
+            android:visibility="invisible"
+            android:id="@+id/contentScrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
