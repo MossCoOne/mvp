@@ -13,6 +13,6 @@ public interface NewsServiceApi {
     Call<List<NewsArticle>> getLatestNews();
 
     @GET("{SiteName}/{UrlName}/news/{UrlFriendlyDate}/{UrlFriendlyHeadline}?format=json")
-    Call<NewsArticle> getArticle(@Path("siteName") String siteName, @Path("UrlName") String urlName,
+    Call<NewsArticle> getArticle(@Path("SiteName") String siteName, @Path("UrlName") String urlName,
             @Path("UrlFriendlyDate") String urlFriendlyDate, @Path("UrlFriendlyHeadline") String urlFriendlyHeadline);
 }

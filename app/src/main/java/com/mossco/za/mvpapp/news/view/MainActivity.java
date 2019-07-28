@@ -21,7 +21,7 @@ import com.mossco.za.mvpapp.utilities.StringsUtils;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements NewsContract.NewsView {
+public class MainActivity extends AppCompatActivity implements NewsContract.NewsView, NewsArticleAdapter.OnItemClickListener {
 
     ActivityMainBinding binding;
     private List<NewsArticle> newsArticleList;
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements NewsContract.News
         }
         newsArticles.remove(mainStory);
 
-        binding.newsArticleRecyclerView.setAdapter(new NewsArticleAdapter(newsArticles));
+        binding.newsArticleRecyclerView.setAdapter(new NewsArticleAdapter(newsArticles,this::onItemClicked));
         binding.newsArticleRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
@@ -82,6 +82,11 @@ public class MainActivity extends AppCompatActivity implements NewsContract.News
     @Override
     public void showFailedToLoadLatestNewsErrorMessage() {
 
+    }
+
+    @Override
+    public void onItemClicked(NewsArticle extraItem) {
+        startActivity(ArticleDetailsActivity.getStartIntent(this,extraItem));
     }
 
     private void ratherDontShowMainStoryView() {
