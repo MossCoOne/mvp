@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:parentActivityName=".news.view.MainActivity"
-            android:name=".article.ArticleDetailsActivity"/>
+            android:name=".article.view.ArticleDetailsActivity"/>
         <activity android:name=".news.view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

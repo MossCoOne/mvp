@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.mossco.za.mvpapp.R;
-import com.mossco.za.mvpapp.article.ArticleDetailsActivity;
+import com.mossco.za.mvpapp.article.view.ArticleDetailsActivity;
 import com.mossco.za.mvpapp.databinding.ActivityMainBinding;
 import com.mossco.za.mvpapp.news.model.NewsArticle;
 import com.mossco.za.mvpapp.news.presenter.NewsContract;
@@ -21,7 +21,7 @@ import com.mossco.za.mvpapp.utilities.StringsUtils;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements NewsContract.View {
+public class MainActivity extends AppCompatActivity implements NewsContract.ViewNewsArticle {
 
     ActivityMainBinding binding;
     private List<NewsArticle> newsArticleList;

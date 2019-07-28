@@ -9,9 +9,9 @@ import java.util.List;
 public class NewsPresenter implements NewsContract.UserActionsListener {
 
     private NewsRepository newsRepository;
-    private NewsContract.View view;
+    private NewsContract.ViewNewsArticle view;
 
-    public NewsPresenter(NewsContract.View view) {
+    public NewsPresenter(NewsContract.ViewNewsArticle view) {
         newsRepository = new NewsRepositoryImplementation();
         this.view = view;
     }

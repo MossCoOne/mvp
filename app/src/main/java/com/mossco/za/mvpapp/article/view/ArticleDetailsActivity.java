@@ -1,4 +1,4 @@
-package com.mossco.za.mvpapp.article;
+package com.mossco.za.mvpapp.article.view;
 
 import android.content.Context;
 import android.content.Intent;

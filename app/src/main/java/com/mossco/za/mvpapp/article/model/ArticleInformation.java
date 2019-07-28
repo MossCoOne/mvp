@@ -1,6 +1,6 @@
 package com.mossco.za.mvpapp.article.model;
 
-class ArticleInformation {
+public class ArticleInformation {
     private String siteName;
     private String urlName;
     private String urlFriendlyDate;
