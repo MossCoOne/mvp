@@ -16,7 +16,7 @@ public class ArticleRepositoryImplementation implements ArticleRepository {
     }
 
     @Override
-    public void loadArticle(ArticleInformation articleInformation, ArticleCallback articleCallback) {
+    public void loadArticle(NewsArticle articleInformation, ArticleCallback articleCallback) {
         newsServiceApi.getArticle(articleInformation.getSiteName(), articleInformation.getUrlName(),
                 articleInformation.getUrlFriendlyDate(), articleInformation.getUrlFriendlyHeadline())
                 .enqueue(new Callback<NewsArticle>() {

@@ -21,7 +21,7 @@ import com.mossco.za.mvpapp.utilities.StringsUtils;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements NewsContract.ViewNewsArticle {
+public class MainActivity extends AppCompatActivity implements NewsContract.NewsView {
 
     ActivityMainBinding binding;
     private List<NewsArticle> newsArticleList;
