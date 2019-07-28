@@ -15,8 +15,11 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".article.view.ArticleDetailsActivity"
-            android:parentActivityName=".news.view.MainActivity"/>
-        <activity android:name=".news.view.MainActivity">
+            android:parentActivityName=".news.view.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".news.view.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
