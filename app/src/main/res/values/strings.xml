@@ -2,4 +2,5 @@
     <string name="app_name">mvpapp</string>
     <string name="places_loading">Loading</string>
     <string name="please_wait_message">Please wait..</string>
+    <string name="news_title">News</string>
 </resources>

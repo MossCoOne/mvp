@@ -1,25 +1,17 @@
 package com.mossco.za.mvpapp.news;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ProgressBar;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.mossco.za.mvpapp.R;
 import com.mossco.za.mvpapp.article.ArticleDetailsActivity;
 import com.mossco.za.mvpapp.databinding.ActivityMainBinding;
 import com.mossco.za.mvpapp.utilities.StringsUtils;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.Type;
-import java.util.Collection;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NewsContract.View {
@@ -35,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements NewsContract.View
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
+        setSupportActionBar(binding.mainToolbar);
+        getSupportActionBar().setTitle(getString(R.string.news_title));
         newsPresenter = new NewsPresenter(this);
 
         newsPresenter.loadLatestNews();
@@ -53,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements NewsContract.View
         } else {
             ratherDontShowMainStoryView();
         }
+        newsArticles.remove(mainStory);
 
         binding.newsArticleRecyclerView.setAdapter(new NewsArticleAdapter(newsArticles));
         binding.newsArticleRecyclerView.setLayoutManager(new LinearLayoutManager(this));
