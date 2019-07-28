@@ -6,6 +6,8 @@ import java.util.Locale;
 
 public class StringsUtils {
 
+    public static final String NEWS_BASE_URL = "http://ipadfeed.supersport.com/";
+
     public static String getFormattedDate(String inputDate)  {
         long unixDate = Long.parseLong(inputDate.substring(inputDate.indexOf('(')+1,inputDate.indexOf('+')));
         Date date = new Date(unixDate);
@@ -23,5 +25,4 @@ public class StringsUtils {
         return simpleDateFormat.format(date);
     }
 
-    //public static String get
 }

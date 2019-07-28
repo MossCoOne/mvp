@@ -8,9 +8,10 @@ import retrofit2.http.Query;
 
 import java.util.List;
 
+
 public interface NewsServiceApi {
 
-    @GET("news/json?")
+    @GET("news?format=json")
     Call<List<NewsArticle>> getLatestNews();
 
     @GET("{SiteName}/{UrlName}/news/{UrlFriendlyDate}/{UrlFriendlyHeadline}?json")
