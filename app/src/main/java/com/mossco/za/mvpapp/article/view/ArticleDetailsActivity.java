@@ -72,7 +72,6 @@ public class ArticleDetailsActivity extends AppCompatActivity implements Article
     @Override
     public void dismissProgressDialog() {
         newsProgressDialog.dismiss();
-        finish();
     }
 
     @Override
