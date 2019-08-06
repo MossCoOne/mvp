@@ -20,6 +20,7 @@ public class ArticlePresenter  implements ArticlesContract.UserActionsListener{
         articleRepository.loadArticle(articleInformation, new ArticleRepository.ArticleCallback() {
             @Override
             public void onArticleLoaded(NewsArticle newsArticle) {
+                articleView.dismissProgressDialog();
                 articleView.showArticle(newsArticle);
             }
 
