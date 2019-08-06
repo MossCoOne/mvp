@@ -1,5 +1,9 @@
 package com.mossco.za.mvpapp.utilities;
 
+import android.text.Spanned;
+
+import androidx.core.text.HtmlCompat;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -24,6 +28,10 @@ public class StringsUtils {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern, Locale.US);
 
         return simpleDateFormat.format(date);
+    }
+
+    public static Spanned formatTextFromHtml(String htmlText) {
+        return HtmlCompat.fromHtml(htmlText, HtmlCompat.FROM_HTML_MODE_LEGACY);
     }
 
 }

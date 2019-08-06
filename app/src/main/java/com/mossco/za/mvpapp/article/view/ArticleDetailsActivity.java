@@ -20,6 +20,8 @@ import com.mossco.za.mvpapp.news.model.NewsArticle;
 import com.mossco.za.mvpapp.utilities.DrawableUtils;
 import com.mossco.za.mvpapp.utilities.StringsUtils;
 
+import static com.mossco.za.mvpapp.utilities.StringsUtils.formatTextFromHtml;
+
 public class ArticleDetailsActivity extends AppCompatActivity implements ArticlesContract.ArticleView {
 
     public static final String NEWS_ARTICLE_KEY = "news_article";
@@ -51,7 +53,7 @@ public class ArticleDetailsActivity extends AppCompatActivity implements Article
         binding.articleDateTextView.setText(StringsUtils.getFormattedDateWithTime(newsArticle.getDateCreated()));
         binding.articleTitleTextView.setText(newsArticle.getHeadline());
         binding.largeImageAltTextView.setText(newsArticle.getLargeImageAlt());
-        binding.articleDescription.setText(newsArticle.getStoryBody());
+        binding.articleDescription.setText(formatTextFromHtml(newsArticle.getStoryBody()));
 
         Glide.with(getApplicationContext()).load(StringsUtils.REMOTE_IMAGE_URL.concat(newsArticle.getLargeImageName()))
                 .dontAnimate().fitCenter().placeholder(DrawableUtils.getCircularProgressDrawable(this))

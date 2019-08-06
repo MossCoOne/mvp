@@ -78,7 +78,7 @@ public class NewsArticleAdapter extends RecyclerView.Adapter<NewsArticleAdapter.
 
         void bindDataToView(NewsArticle newsArticle) {
             this.newsArticle = newsArticle;
-            categoryChip.setText(newsArticle.getCategory());
+            categoryChip.setText(!newsArticle.getCategory().isEmpty() ?newsArticle.getCategory():"Un-available");
             headlineTextView.setText(newsArticle.getHeadline());
             dateTextView.setText(getFormattedDate(newsArticle.getDateCreated()));
             blurbTextView.setText(newsArticle.getBlurb());
