@@ -39,7 +39,7 @@ public class ArticleDetailsActivity extends AppCompatActivity implements Article
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_article_details);
-        newsProgressDialog = new ProgressDialog(this);
+        newsProgressDialog = new ProgressDialog(getApplicationContext());
 
         setSupportActionBar(binding.mainToolbar);
         getSupportActionBar().setTitle(getString(R.string.news_article));
@@ -56,7 +56,7 @@ public class ArticleDetailsActivity extends AppCompatActivity implements Article
         binding.articleDescription.setText(formatTextFromHtml(newsArticle.getStoryBody()));
 
         Glide.with(getApplicationContext()).load(StringsUtils.REMOTE_IMAGE_URL.concat(newsArticle.getLargeImageName()))
-                .dontAnimate().fitCenter().placeholder(DrawableUtils.getCircularProgressDrawable(this))
+                .dontAnimate().fitCenter().placeholder(DrawableUtils.getCircularProgressDrawable(getApplicationContext()))
                 .error(R.drawable.ic_image_not_availabe).into(binding.articleImageView);
         binding.articleScrollView.setVisibility(View.VISIBLE);
     }
@@ -82,7 +82,7 @@ public class ArticleDetailsActivity extends AppCompatActivity implements Article
 
     public void showCustomDialog(String titleText) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
         builder.setTitle(titleText);
         builder.setIcon(R.drawable.ic_error_black_24dp);
         builder.setNegativeButton(R.string.cancel_text, (dialog, which) -> finish())
