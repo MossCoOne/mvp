@@ -16,6 +16,7 @@ public class ArticlePresenter  implements ArticlesContract.UserActionsListener{
 
     @Override
     public void loadArticle(NewsArticle articleInformation) {
+        articleView.showProgressDialog();
         articleRepository.loadArticle(articleInformation, new ArticleRepository.ArticleCallback() {
             @Override
             public void onArticleLoaded(NewsArticle newsArticle) {
@@ -24,6 +25,7 @@ public class ArticlePresenter  implements ArticlesContract.UserActionsListener{
 
             @Override
             public void onErrorOccurred(String errorMessage) {
+                articleView.dismissProgressDialog();
                 articleView.showFailedToLoadLatestNewsErrorMessage();
             }
         });
