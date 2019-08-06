@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/mainToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:minHeight="?attr/actionBarSize"
+            app:titleTextColor="@color/colorWhite"/>
+
+
+        <ScrollView
+            android:id="@+id/articleScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:visibility="invisible"
+            android:scrollbars="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorKhakhiLight"
+                android:orientation="vertical"
+                tools:context=".article.view.ArticleDetailsActivity">
+
+                <TextView
+                    android:id="@+id/articleTitleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/medium_space"
+                    android:layout_marginStart="@dimen/medium_space"
+                    android:layout_marginTop="@dimen/small_space"
+                    tools:text="Tough love from early coaches made beast"
+                    style="@style/HeadLineTextStyleLarge"/>
+
+                <TextView
+                    android:id="@+id/articleDateTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/extra_small_space"
+                    android:layout_marginEnd="@dimen/medium_space"
+                    android:layout_marginStart="@dimen/medium_space"
+                    style="@style/SmallTextStyleTab"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/articleImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/headline_height_size"
+                    android:scaleType="centerCrop"
+                    tools:srcCompat="@drawable/beast"/>
+                <TextView
+                    android:id="@+id/largeImageAltTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="@dimen/medium_space"
+                    tools:text="alt description"
+                    style="@style/SmallTextStyleTab"/>
+                <TextView
+                    android:id="@+id/articleDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/medium_space"
+                    tools:text="
+
+Tendai Mtawarira wouldn’t be the record breaker he will become on Friday and he wouldn’t have become the household name he is in the rugby-playing world, were it not for the tough love shown towards him by some of his early coaches.
+
+Making the swop from loose-forward and lock to playing in the front row is not an easy thing to do. Neither is it for the faint-hearted. The good props have played the position for years, and there’s a reason why generally it is accepted that players in that position mature later than others. As the ones who survive to become really good will tell you, being  - actually they usually use a much stronger word - in the scrums at some point is how you learn.
+"
+                    style="@style/MediumTextStyleTab"/>
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+</layout>

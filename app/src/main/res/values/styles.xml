@@ -10,20 +10,38 @@
     </style>
 
     <style name="HeadLineTextStyle" parent="AppTheme">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">20dp</item>
         <item name="android:padding">2dp</item>
         <item name="android:textColor">@color/colorBlack</item>
     </style>
 
+    <style name="HeadLineTextStyleLarge" parent="AppTheme">
+        <item name="android:textSize">30dp</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="SmallTextStyleTab" parent="AppTheme">
+        <item name="android:textSize">18dp</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
     <style name="SmallTextStyle" parent="AppTheme">
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">12dp</item>
         <item name="android:padding">2dp</item>
         <item name="android:textColor">@color/colorBlack</item>
     </style>
 
     <style name="MediumTextStyle" parent="AppTheme">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">16dp</item>
         <item name="android:padding">2dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="MediumTextStyleTab" parent="AppTheme">
+        <item name="android:textSize">24dp</item>
+        <item name="android:padding">4dp</item>
         <item name="android:textColor">@color/colorBlack</item>
     </style>
 

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/small_space"
+        android:layout_marginEnd="@dimen/medium_space"
+        android:layout_marginStart="@dimen/medium_space"
+        android:layout_marginTop="@dimen/small_space"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:background="@drawable/card_background">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/categoryChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_space"
+            android:textColor="@color/colorAccent"
+            app:checkedIconEnabled="false"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            app:chipBackgroundColor="@color/colorPrimaryDark"
+            app:chipStrokeColor="@color/colorAccent"
+            app:layout_constraintEnd_toStartOf="@+id/thumbNailImageView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Cricked"/>
+        <TextView
+            android:id="@+id/headlineTextView"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/medium_space"
+            android:layout_marginStart="@dimen/medium_space"
+            android:layout_marginTop="@dimen/zero_dp"
+            app:layout_constraintEnd_toStartOf="@+id/thumbNailImageView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categoryChip"
+            tools:text="Juve's Bonucci says Kean abuse comments were misunderstood"
+            style="@style/HeadLineTextStyleLarge"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/thumbNailImageView"
+            android:layout_width="@dimen/image_thumb_nail_size"
+            android:layout_height="@dimen/image_thumb_nail_size"
+            android:layout_marginBottom="@dimen/medium_space"
+            android:layout_marginEnd="@dimen/medium_space"
+            android:layout_marginTop="@dimen/medium_space"
+            app:layout_constraintBottom_toBottomOf="@+id/dateTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_launcher_background"/>
+        <TextView
+            android:id="@+id/dateTextView"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/medium_space"
+            android:layout_marginStart="@dimen/medium_space"
+            style="@style/SmallTextStyleTab"
+            app:layout_constraintEnd_toStartOf="@+id/thumbNailImageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/headlineTextView"
+            tools:text="2019-04-09"/>
+        <TextView
+            android:id="@+id/blurbTextView"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/medium_space"
+            android:layout_marginEnd="@dimen/medium_space"
+            style="@style/SmallTextStyleTab"
+            android:layout_marginStart="@dimen/medium_space"
+            android:layout_marginTop="@dimen/small_space"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dateTextView"
+            tools:text="Juventus defender Leonardo Bonucci says his comments about teammate Moise Kean being partly to blame for racist abuse he suffered after scoring at Cagliari on Tuesday were misunderstood."/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
