@@ -35,11 +35,12 @@
                     android:id="@+id/articleTitleTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
                     android:layout_marginEnd="@dimen/medium_space"
                     android:layout_marginStart="@dimen/medium_space"
                     android:layout_marginTop="@dimen/small_space"
                     tools:text="Tough love from early coaches made beast"
-                    style="@style/HeadLineTextStyle"/>
+                    style="@style/HeadLineTextStyleLarge"/>
 
                 <TextView
                     android:id="@+id/articleDateTextView"
