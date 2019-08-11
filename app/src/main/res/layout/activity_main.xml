@@ -73,6 +73,7 @@
                             android:layout_marginEnd="@dimen/medium_space"
                             android:layout_marginTop="@dimen/small_space"
                             android:layout_marginBottom="@dimen/small_space"
+                            android:textStyle="bold"
                             android:textColor="@color/colorWhite"
                             tools:text="Tough from early coaches made beast"
                             style="@style/HeadLineTextStyle"/>
