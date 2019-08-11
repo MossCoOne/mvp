@@ -55,8 +55,6 @@ public class MainActivity extends AppCompatActivity implements NewsContract.News
     @Override
     public void displayLatestNews(List<NewsArticle> newsArticles) {
 
-        newsArticles.get(0).setMainStory(true);
-
         mainStory = getMainStory(newsArticles);
 
         if (mainStory != null) {
